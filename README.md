@@ -7,7 +7,7 @@
 [![devDependencies Status](https://david-dm.org/jehy/checkExact/dev-status.svg)](https://david-dm.org/jehy/checkExact?type=dev)
 [![Known Vulnerabilities](https://snyk.io/test/github/jehy/checkExact/badge.svg)](https://snyk.io/test/github/jehy/checkExact)
 
-Add this module to only allow git commits with emails from certain domain.
+Add this module to add issue tracker task number to commit messages.
 
 #### Install
 
