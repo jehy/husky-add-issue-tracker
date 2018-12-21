@@ -1,6 +1,6 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2018,
     "sourceType": "script",
     "ecmaFeatures": {
       "jsx": false
@@ -29,7 +29,6 @@
       }
     ],
     "prefer-destructuring": "warn",
-    "one-var": "off",
     "no-mixed-operators": "off",
     "arrow-body-style": "off",
     "brace-style": "off",
@@ -43,8 +42,6 @@
     "no-param-reassign": "warn",
     "no-console": "error",
     "newline-per-chained-call": "off",
-    "no-continue": "off",
-    "no-multi-spaces": "off",
     "max-len": [
       "error",
       140

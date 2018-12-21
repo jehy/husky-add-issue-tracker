@@ -2,34 +2,21 @@
 
 'use strict';
 
-const fs = require('fs');
-const {execSync} = require('child_process');
+const lib = require('./lib.js');
 
-const commitEditMsg = fs.readFileSync('.git/COMMIT_EDITMSG', 'utf8');
-if (commitEditMsg.startsWith('merge'))
+const commitMessage = lib.getCommitMessage();
+if (!lib.checkNeedOverride(commitMessage)) {
+  process.exit(0);
+}
+const branchName = lib.getBranchName();
+const taskName = lib.getTaskName(branchName);
+if (!taskName) // some bad branch, like dev or master
 {
   process.exit(0);
 }
-const branch = execSync('git rev-parse --abbrev-ref HEAD').toString('utf8').trim();
-// console.log(`branch: ${branch}`);
-const regExp = /([A-Z]+-[0-9]+(--[A-Z]+-[0-9]+)?).*/;
-const res = regExp.exec(branch);
-if (!res || !res[1]) // some kind of shitty branch
+const newCommitMessage = lib.formatCommitMessage(taskName, commitMessage);
+if (newCommitMessage !== commitMessage)
 {
-  process.exit(0);
-}
-const taskName = res[1];
-// console.log(`taskName: ${taskName}`);
-/* const description = execSync(`git config branch.${branch}.description`);
-console.log(`description: ${description}`);
-if(description)
-{
-  fs.writeFileSync('.git/COMMIT_EDITMSG', description);
-}
-*/
-
-if (!commitEditMsg.startsWith(`${taskName}: `))
-{
-  fs.writeFileSync('.git/COMMIT_EDITMSG', `${taskName}: ${commitEditMsg}`);
+  lib.setCommitMessage(newCommitMessage);
 }
 process.exit(0);
