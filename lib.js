@@ -1,18 +1,36 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const {execSync} = require('child_process');
+
+/* istanbul ignore next */
+function getGitCommitMessageFilePath()
+{
+  const tryLocal = path.join(process.env.PWD, '.git', 'COMMIT_EDITMSG');
+  if (fs.existsSync(tryLocal))
+  {
+    return tryLocal;
+  }
+  // Ugly workaround, I did not manage to find a better way
+  const gitIndexFile = process.env.GIT_INDEX_FILE;
+  if (!gitIndexFile)
+  {
+    throw new Error('Could not get git directory!');
+  }
+  return path.join(gitIndexFile.replace('index.lock', ''), 'COMMIT_EDITMSG');
+}
 
 /* istanbul ignore next */
 function getCommitMessage()
 {
-  return fs.readFileSync('.git/COMMIT_EDITMSG', 'utf8');
+  return fs.readFileSync(getGitCommitMessageFilePath(), 'utf8');
 }
 
 /* istanbul ignore next */
 function setCommitMessage(commitMessage)
 {
-  fs.writeFileSync('.git/COMMIT_EDITMSG', commitMessage);
+  fs.writeFileSync(getGitCommitMessageFilePath(), commitMessage, 'utf8');
 }
 
 function checkNeedOverride(commitMessage)
