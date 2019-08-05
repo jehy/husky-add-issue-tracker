@@ -53,4 +53,16 @@ describe('formatCommitMessage', ()=>{
     const newCommitMessage = lib.formatCommitMessage(taskName, message);
     assert.equal(newCommitMessage, 'XXX-666: make some legacy code');
   });
+  it('should add task name with number', () => {
+    const message = 'make some legacy code with number in task';
+    const taskName = 'X2X-666';
+    const newCommitMessage = lib.formatCommitMessage(taskName, message);
+    assert.equal(newCommitMessage, `${taskName}: ${message}`);
+  });
+  it('should not add task name with number when it exists', ()=>{
+    const message = 'X2X-666: make some legacy code';
+    const taskName = 'X2X-666';
+    const newCommitMessage = lib.formatCommitMessage(taskName, message);
+    assert.equal(newCommitMessage, message);
+  });
 });
