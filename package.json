@@ -1,6 +1,6 @@
 {
   "name": "husky-add-issue-tracker",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "bin": {
     "husky-add-issue-tracker": "index.js"
   },
@@ -20,13 +20,13 @@
   },
   "author": "Jehy http://github.com/jehy",
   "devDependencies": {
-    "coveralls": "^3.0.5",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-loader": "^2.2.1",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-loader": "^3.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.1",
     "mocha": "^6.2.0",
     "chai": "^4.2.0",
     "nyc": "^14.1.1"

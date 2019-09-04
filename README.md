@@ -12,6 +12,7 @@ Add this module to automatically add issue tracker task number to commit message
 
 For example, if you are on branch `XXX-666-add-legacy-code` and you add a commit with
 message `added some legacy code`, you message will turn into `XXX-666: added some legacy code`.
+
 #### Install
 
 ```bash
@@ -29,3 +30,9 @@ npm i husky-add-issue-tracker
   }
 }
 ```
+
+#### See also
+
+ * [husky-check-email](https://www.npmjs.com/package/husky-check-email)
+ * [husky-check-name](https://www.npmjs.com/package/husky-check-name)
+
