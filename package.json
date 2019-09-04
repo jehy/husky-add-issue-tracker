@@ -1,10 +1,19 @@
 {
   "name": "husky-add-issue-tracker",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "bin": {
     "husky-add-issue-tracker": "index.js"
   },
   "description": "Add issue tracker task to commit message",
+  "keywords": [
+    "hooks",
+    "git",
+    "husky",
+    "issue tracker",
+    "issue",
+    "bug",
+    "jira"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:jehy/husky-add-issue-tracker.git"
