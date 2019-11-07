@@ -24,6 +24,11 @@ describe('getTaskName', ()=>{
     const taskName = lib.getTaskName(branchName);
     assert.equal(taskName, 'XXX-666');
   });
+  it('should get task name from branch with lowercase', ()=>{
+    const branchName = 'xxx-666-make-some-legacy-code';
+    const taskName = lib.getTaskName(branchName);
+    assert.equal(taskName, 'xxx-666');
+  });
   it('should not get task name from random garbage', ()=>{
     const branchNames = ['dev', 'master', '666', 'XXX', 'test-branch'];
     branchNames.forEach((branchName)=>{

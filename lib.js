@@ -56,7 +56,7 @@ function getBranchName()
 
 function getTaskName(branchName)
 {
-  const regExp = /([A-Z0-9]+-[0-9]+(--[A-Z]+-[0-9]+)?).*/;
+  const regExp = /([A-Za-z0-9]+-[0-9]+(--[A-Za-z]+-[0-9]+)?).*/;
   const res = regExp.exec(branchName);
   if (!res || !res[1]) // some kind of shitty branch
   {
