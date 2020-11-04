@@ -14,6 +14,10 @@ if (!taskName) // some bad branch, like dev or master
 {
   process.exit(0);
 }
+if (lib.commitHasTaskName(commitMessage))
+{
+  process.exit(0);
+}
 const newCommitMessage = lib.formatCommitMessage(taskName, commitMessage);
 if (newCommitMessage !== commitMessage)
 {

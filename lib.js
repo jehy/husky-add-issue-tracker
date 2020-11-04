@@ -76,6 +76,16 @@ function formatCommitMessage(taskName, commitMessage)
   return `${taskName}: ${commitMessage}`;
 }
 
+function commitHasTaskName(commitMessage)
+{
+  const branch = getTaskName(commitMessage);
+  if (!branch)
+  {
+    return false;
+  }
+  return commitMessage.startsWith(branch);
+}
+
 module.exports = {
   getCommitMessage,
   setCommitMessage,
@@ -83,4 +93,5 @@ module.exports = {
   getBranchName,
   getTaskName,
   formatCommitMessage,
+  commitHasTaskName,
 };

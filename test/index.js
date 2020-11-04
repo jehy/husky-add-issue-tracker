@@ -29,6 +29,11 @@ describe('getTaskName', ()=>{
     const taskName = lib.getTaskName(branchName);
     assert.equal(taskName, 'xxx-666');
   });
+  it('should get task name from branch with prefix feature', ()=>{
+    const branchName = 'feature/XXX-666-make-some-legacy-code';
+    const taskName = lib.getTaskName(branchName);
+    assert.equal(taskName, 'XXX-666');
+  });
   it('should not get task name from random garbage', ()=>{
     const branchNames = ['dev', 'master', '666', 'XXX', 'test-branch'];
     branchNames.forEach((branchName)=>{
@@ -69,5 +74,18 @@ describe('formatCommitMessage', ()=>{
     const taskName = 'X2X-666';
     const newCommitMessage = lib.formatCommitMessage(taskName, message);
     assert.equal(newCommitMessage, message);
+  });
+});
+
+describe('commitHasTaskName', () => {
+
+  it('Should return true - commit starts with task name', () => {
+    assert.equal(lib.commitHasTaskName('X2X-666: make some legacy code'), true);
+  });
+  it('Should return false - commit includes task name', () => {
+    assert.equal(lib.commitHasTaskName('task bla bla bla X2X-666: make some legacy code'), false);
+  });
+  it('Should return false - commit not includes task name', () => {
+    assert.equal(lib.commitHasTaskName('make some legacy code'), false);
   });
 });
