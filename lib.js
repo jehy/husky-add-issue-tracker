@@ -49,7 +49,7 @@ function getBranchName()
   const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString('utf8').trim();
   if (branchName === 'HEAD') //  it does not work if you are in a 'detached HEAD' state
   {
-    return execSync('git branch | grep * | cut -d \' \' -f2').toString('utf8').trim();
+    return execSync('git branch | grep \\* | cut -d \' \' -f2').toString('utf8').trim();
   }
   return branchName;
 }
