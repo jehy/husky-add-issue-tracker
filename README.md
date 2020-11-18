@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/husky-add-issue-tracker.svg)](https://npm.im/husky-add-issue-tracker)
 [![license](https://img.shields.io/npm/l/husky-add-issue-tracker.svg)](https://npm.im/husky-add-issue-tracker)
-[![Build Status](https://travis-ci.org/jehy/husky-add-issue-tracker.svg?branch=master)](https://travis-ci.org/jehy/husky-add-issue-tracker)
+![Build](https://github.com/jehy/husky-add-issue-tracker/workflows/Build/badge.svg)
 [![dependencies Status](https://david-dm.org/jehy/husky-add-issue-tracker/status.svg)](https://david-dm.org/jehy/husky-add-issue-tracker)
 [![devDependencies Status](https://david-dm.org/jehy/husky-add-issue-tracker/dev-status.svg)](https://david-dm.org/jehy/husky-add-issue-tracker?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/jehy/husky-add-issue-tracker/badge.svg?branch=master)](https://coveralls.io/github/jehy/husky-add-issue-tracker?branch=master)
